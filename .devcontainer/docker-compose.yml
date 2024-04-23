@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/rust:latest
+    volumes:
+      - ..:/workspace:cached
+    command: /bin/bash -c "/workspace/.devcontainer/bin/start.sh"
+    network_mode: "host"
+    user: "vscode"
+    environment:
+      - https_proxy=http://192.168.1.101:23457
+      - http_proxy=http://192.168.1.101:23457
